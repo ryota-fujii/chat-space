@@ -4,7 +4,7 @@
 |column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|image_url|text|
+|email|text|null: false|
 
 ### Association
 - has_many :groups, through: :members
@@ -27,7 +27,8 @@
 |------|----|-------|
 |user_id|integer|null: false|
 |group_id|integer|null: false|
-|text|text|null: false|
+|text|text|
+|image|text|
 
 ### Association
 
