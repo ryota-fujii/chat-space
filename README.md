@@ -1,6 +1,6 @@
 # README
 
-##usersテーブル
+## usersテーブル
 |column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
@@ -11,7 +11,7 @@
 - has_many :messages
 - has_many :members
 - accepts_nested_attributes_for :members
-##groupsテーブル
+## groupsテーブル
 |column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
@@ -22,7 +22,7 @@
 - has_many :members
 - accepts_nested_attributes_for :members
 
-##messagesテーブル
+## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false|
@@ -34,7 +34,7 @@
 - belongs_to :user
 - belongs_to :group
 
-##membersテーブル
+## membersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
