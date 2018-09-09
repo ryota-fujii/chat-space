@@ -1,0 +1,12 @@
+%div{id: "side_bar"}
+  %div{id: "side_bar--head"}
+    -# = @user.name
+    = link_to root_path do
+      %i.fa.fa-magic
+    = link_to root_path do
+      %i.fa.fa-cog
+
+  %div{id: "side_bar--main"}
+    - if @groups.present?
+      - @groups.each do |group|
+        = render partial: "group", locals: {group: group}
