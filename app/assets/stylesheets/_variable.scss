@@ -1,0 +1,10 @@
+.info{
+  width: 100vw;
+  height: 30px;
+  background: #38AEF0;
+  text-align: center;
+  &__message{
+    color: #ffffff;
+    line-height: 33px;
+  }
+}
