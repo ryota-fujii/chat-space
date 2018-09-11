@@ -1,12 +1,16 @@
-%div{id: "side_bar"}
-  %div{id: "side_bar--head"}
-    -# = @user.name
-    = link_to root_path do
-      %i.fa.fa-magic
-    = link_to root_path do
-      %i.fa.fa-cog
+%div{class: "side_bar"}
+  %div{class: "side_bar__user"}
+    %span{class: "side_bar__user__name"}
+      -# = @user.name
+      Hoge
+    %div{class: "side_bar__user__icon"}
+      = link_to root_path do
+        %i.fa.fa-pencil-square-o.fa-lg
+      = link_to root_path do
+        %i.fa.fa-cog.fa-lg
 
-  %div{id: "side_bar--main"}
-    - if @groups.present?
-      - @groups.each do |group|
-        = render partial: "group", locals: {group: group}
+  %div{class: "side_bar__groups"}
+    -# - if @groups.present?
+    -#   - @groups.each do |group|
+    -#     = render partial: "group", locals: {group: group}
+    = render "group"
