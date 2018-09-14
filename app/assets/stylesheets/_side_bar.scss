@@ -1,11 +1,12 @@
 .side_bar{
+  float: left;
   width: 300px;
   height: 100vw;
   background: #2f3e51;
   color: #ffffff;
     &__user{
       background: #253141;
-      height: 62px;
+      height: 63px;
       padding: 38px 20px 0px;
       &__name{
         font-size: 16px;

@@ -1,0 +1,10 @@
+%div{class: "chat"}
+  %div{class: "chat__group"}
+    =link_to "Edit", root_path, class: "edit_button"
+    %div{class: "chat__group__name"}
+      sample
+    %div{class: "chat__group__members"}
+      sample1
+  %div{class: "chat__space"}
+    = render "message"
+%div{class: "send_space"}
