@@ -2,38 +2,8 @@
   width: calc(100vw - 300px);
   height: 100vw;
   float: right;
-  &__group{
-    padding: 0px 40px;
-    border-bottom: solid #eeeeee;
-    border-bottom-width: 1px;
-    height: 100px;
-    background: #ffffff;
-    .edit_button{
-      display: inline-block;
-      color: #38aef0;
-      height: 36px;
-      width: 64px;
-      line-height: 36px;
-      margin-top: 28px;
-      text-align: center;
-      border: 2px solid;
-      border-color: #38aef0;
-      float: right;
-    }
-    &__name{
-      margin-top: 35px;
-      display: inline-block;
-      font-size: 20px;
-      color: #333333;
-    }
-    &__members{
-      margin-top: 3px;
-      font-size: 12px;
-      color: #999999;
-    }
-  }
   &__space{
-    height: calc(100vw - 30px - $head_height);
+    height: 100vw;
     background: #aaaaaa;
   }
 }

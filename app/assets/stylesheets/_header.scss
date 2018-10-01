@@ -1,0 +1,72 @@
+header{
+  height: 131px;
+  width: 100vw;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 100;
+  .info{
+    background: #38aef0;
+    height: 31px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav_bar{
+    height: 100px;
+    &__user{
+      background: #253141;
+      height: 63px;
+      width: 260px;
+      padding: 38px 20px 0px;
+      display: inline-block;
+      color: #ffffff;
+      &__name{
+        font-size: 16px;
+        font-weight: bold;
+      }
+      &__icon{
+        float: right;
+        .fa{
+        color: #ffffff;
+        }
+      }
+    }
+    &__group{
+      padding: 0px 40px;
+      width: calc(100vw - 380px);
+      border-bottom: solid #eeeeee;
+      border-bottom-width: 1px;
+      height: 100px;
+      background: #ffffff;
+      right: 0px;
+      display: inline-block;
+      float: right;
+      .edit_button{
+        display: inline-block;
+        color: #38aef0;
+        height: 36px;
+        width: 64px;
+        line-height: 36px;
+        margin-top: 28px;
+        text-align: center;
+        border: 2px solid;
+        border-color: #38aef0;
+        float: right;
+        text-decoration: none;
+      }
+      .group__name{
+        margin-top: 35px;
+        display: inline-block;
+        font-size: 20px;
+        color: #333333;
+      }
+      .group__members{
+        margin-top: 3px;
+        font-size: 12px;
+        color: #999999;
+      }
+    }
+  }
+}
