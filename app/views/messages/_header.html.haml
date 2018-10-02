@@ -1,0 +1,20 @@
+%header
+  %div{class: "info"}
+    %span
+      チャットグループが作成されました
+  %nav_bar
+    %div{class: "nav_bar__user"}
+      %span{class: "nav_bar__user__name"}
+        -# = @user.name
+        Hoge
+      %div{class: "nav_bar__user__icon"}
+        = link_to root_path do
+          %i.fa.fa-pencil-square-o.fa-lg
+        = link_to root_path do
+          %i.fa.fa-cog.fa-lg
+    %div{class: "nav_bar__group"}
+      =link_to "Edit", root_path, class: "edit_button"
+      %div{class: "group__name"}
+        Sample
+      %div{class: "group__members"}
+        Memmbers: sample

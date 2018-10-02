@@ -1,0 +1,9 @@
+%div{class: "chat"}
+  %div{class: "chat__space"}
+    = render "message"
+  %div{class: "chat__footer"}
+    %form{class: "new_message", action:  ""}
+      %textarea{class: "message_input",  placeholder: "type a message", type: "message", rows: 1, value: ""}
+      %label{class: "image"}
+        %i.fa.fa-image.fa-lg
+      %input{class: "send_button", type: "submit", value: "Send"}
