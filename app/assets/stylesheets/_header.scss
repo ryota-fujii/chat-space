@@ -6,7 +6,7 @@ header{
   left: 0px;
   z-index: 100;
   .info{
-    background: #38aef0;
+    background: $btn_blue;
     height: 31px;
     color: white;
     display: flex;
@@ -21,7 +21,7 @@ header{
       width: 260px;
       padding: 38px 20px 0px;
       display: inline-block;
-      color: #ffffff;
+      color: $w_color;
       &__name{
         font-size: 16px;
         font-weight: bold;
@@ -29,7 +29,7 @@ header{
       &__icon{
         float: right;
         .fa{
-        color: #ffffff;
+        color: $w_color;
         }
       }
     }
@@ -39,20 +39,20 @@ header{
       border-bottom: solid #eeeeee;
       border-bottom-width: 1px;
       height: 100px;
-      background: #ffffff;
+      background: $w_color;
       right: 0px;
       display: inline-block;
       float: right;
       .edit_button{
         display: inline-block;
-        color: #38aef0;
+        color: $btn_blue;
         height: 36px;
         width: 64px;
         line-height: 36px;
         margin-top: 28px;
         text-align: center;
         border: 2px solid;
-        border-color: #38aef0;
+        border-color: $btn_blue;
         float: right;
         text-decoration: none;
       }
