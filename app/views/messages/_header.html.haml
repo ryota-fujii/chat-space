@@ -1,17 +1,14 @@
 %header
-  %div{class: "info"}
-    %span
-      チャットグループが作成されました
   %nav_bar
-    %div{class: "nav_bar__user"}
-      %span{class: "nav_bar__user__name"}
+    %div.nav_bar__user
+      %span.nav_bar__user__name
         -# = @user.name
-        Hoge
+        = current_user.name
       %div{class: "nav_bar__user__icon"}
         = link_to root_path do
-          %i.fa.fa-pencil-square-o.fa-lg
-        = link_to root_path do
-          %i.fa.fa-cog.fa-lg
+          = fa_icon 'pencil-square-o', class: 'icon'
+        = link_to edit_user_path(current_user) do
+          = fa_icon 'cog', class: 'icon'
     %div{class: "nav_bar__group"}
       =link_to "Edit", root_path, class: "edit_button"
       %div{class: "group__name"}
