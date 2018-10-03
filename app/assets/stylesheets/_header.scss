@@ -1,18 +1,9 @@
 header{
-  height: 131px;
+  height: 100px;
   width: 100vw;
-  position: fixed;
   top: 0px;
   left: 0px;
   z-index: 100;
-  .info{
-    background: $btn_blue;
-    height: 31px;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
   .nav_bar{
     height: 100px;
     &__user{

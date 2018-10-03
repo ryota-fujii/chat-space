@@ -1,12 +1,9 @@
 %header
-  %div{class: "info"}
-    %span
-      チャットグループが作成されました
   %nav_bar
     %div.nav_bar__user
       %span.nav_bar__user__name
         -# = @user.name
-        Hoge
+        = current_user.name
       %div{class: "nav_bar__user__icon"}
         = link_to root_path do
           = fa_icon 'pencil-square-o', class: 'icon'
