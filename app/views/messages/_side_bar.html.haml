@@ -1,8 +1,9 @@
 %div.side_bar
   - current_user.groups.each do |group|
     = link_to group_messages_path(group) do
-      %div.side_bar__groups
-        %div.side_bar__groups__name
-          サンプル
-        %div.side_bar__groups__last_message
-          メッセージはまだありません
+      %div.side_bar__group
+        = link_to group_messages_path(group) do
+          %div.side_bar__group__name
+            = group.name
+          %div.side_bar__group__last_message
+            メッセージはまだありません
