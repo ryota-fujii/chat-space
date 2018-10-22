@@ -1,6 +1,6 @@
 %div.chat
   %div.chat__space
-    = render "message"
+    = render "./messages/message"
   %div.chat__footer
     %form{class: "new_message", action:  ""}
       %textarea{class: "message_input",  placeholder: "type a message", type: "message", rows: 1, value: ""}
