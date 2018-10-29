@@ -2,7 +2,6 @@
   %nav_bar
     %div.nav_bar__user
       %span.nav_bar__user__name
-        -# = @user.name
         = current_user.name
       %div.nav_bar__user__icon
         = link_to new_group_path do
@@ -12,7 +11,6 @@
     %div.nav_bar__group
       =link_to "Edit", root_path, class: "edit_button"
       %div.group__name
-
-        ほげ
+        = @group.name if @group.present?
       %div.group__members
-        Memmbers: sample
+        members:
