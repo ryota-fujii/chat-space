@@ -1,9 +1,12 @@
-%div{class: "chat"}
-  %div{class: "chat__space"}
-    = render "message"
-  %div{class: "chat__footer"}
-    %form{class: "new_message", action:  ""}
-      %textarea{class: "message_input",  placeholder: "type a message", type: "message", rows: 1, value: ""}
-      %label{class: "image"}
-        %i.fa.fa-image.fa-lg
-      %input{class: "send_button", type: "submit", value: "Send"}
+%div.chat
+  %div.chat__space
+    = render partial: "message", collection: @messages
+  %div.chat__footer
+    %div.new_message
+      = form_for [@group, @message] do |f|
+        =f.text_field :content, class: "message_input", placeholder: "type a message", rows: 1
+        .form__mark
+          =f.label :image, class: 'image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        =f.submit 'Send', class: 'send_button'

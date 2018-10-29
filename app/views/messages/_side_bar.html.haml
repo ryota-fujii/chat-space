@@ -1,6 +1,9 @@
-%div{class: "side_bar"}
-  %div{class: "side_bar__groups"}
-    -# - if @groups.present?
-    -#   - @groups.each do |group|
-    -#     = render partial: "group", locals: {group: group}
-    = render "group"
+%div.side_bar
+  - current_user.groups.each do |group|
+    = link_to group_messages_path(group) do
+      %div.side_bar__group
+        = link_to group_messages_path(group) do
+          %div.side_bar__group__name
+            = group.name
+          %div.side_bar__group__last_message
+            = group.show_last_message

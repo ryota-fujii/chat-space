@@ -5,17 +5,18 @@
   background: #2f3e51;
   color: $w_color;
   top: 100px;
-    &__groups{
-      .group{
+    &__group{
         height: 46px;
+        color: #ffffff;
         padding: 20px 20px 20px;
         &__name{
           font-size: 15px;
+          color: #fff;
         }
         &__last_message{
           font-size: 11px;
+          color: #fff;
         }
       }
-    }
 
 }
