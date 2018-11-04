@@ -1,0 +1,8 @@
+FactoryBot.define do
+  factory :message do
+    content Faker::Lorem.sentence
+    image Fiel.open("#{Rails.root}/public/images/no-image.jpg")
+    user
+    group
+  end
+end
