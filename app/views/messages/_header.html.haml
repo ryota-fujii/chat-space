@@ -14,3 +14,5 @@
         = @group.name if @group.present?
       %div.group__members
         members:
+        - @group.users.each do |user|
+          = user.name

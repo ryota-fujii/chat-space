@@ -3,7 +3,7 @@
     = render partial: "message", collection: @messages
   %div.chat__footer
     %div.new_message
-      = form_for [@group, @message] do |f|
+      = form_for [@group, @message], class: 'create_message' do |f|
         =f.text_field :content, class: "message_input", placeholder: "type a message", rows: 1
         .form__mark
           =f.label :image, class: 'image' do
