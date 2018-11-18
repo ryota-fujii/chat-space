@@ -1,18 +1,19 @@
 .chat{
   width: calc(100vw - 300px);
-  height: 100vw;
+  height: 100vh;
   float: right;
   overflow: scroll;
   display: inline-block;
   &__space{
     padding: 46px 40px 0px;
-    height: 100vw;
+    height: calc(100vh- 90px);
+    padding-bottom: 90px;
   }
   &__footer{
     width: calc(100vw - 300px);
     padding: 20px 40px;
-    position: fixed;
     bottom: 0px;
+    position: fixed;
     background: #D3D3D3;
     .new_message{
       height: 50px;

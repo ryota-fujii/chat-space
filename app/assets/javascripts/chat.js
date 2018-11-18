@@ -1,4 +1,4 @@
-$(function(){
+$(function() {
   function buildHTML(message){
     console.log('たどり着いた？')
     if (message.image){
@@ -41,7 +41,7 @@ $(function(){
     })
 
     .done(function(data){
-      console.log(data);
+      console.log("成功");
       var html = buildHTML(data);
       $('.chats').append(html);
       console.log("ついか？");
