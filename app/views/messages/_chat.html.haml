@@ -1,9 +1,10 @@
 %div.chat
   %div.chat__space
-    = render partial: "message", collection: @messages
+    %ul.chats
+      = render @messages
   %div.chat__footer
     %div.new_message
-      = form_for [@group, @message] do |f|
+      = form_for [@group, @message], remote: true do |f|
         =f.text_field :content, class: "message_input", placeholder: "type a message", rows: 1
         .form__mark
           =f.label :image, class: 'image' do

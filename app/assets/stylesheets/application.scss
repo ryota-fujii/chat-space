@@ -5,7 +5,16 @@
 @import "modules/user";
 @import "modules/group";
 @import "modules/flash";
+@import "./index";
 @import "./header";
 @import "./side_bar";
 @import "./chat";
 @import "./message";
+
+html{
+  height: 100%;
+}
+
+body{
+  height: 100%;
+}

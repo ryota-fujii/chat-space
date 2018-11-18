@@ -2,6 +2,7 @@
   width: calc(100vw - 300px);
   height: 100vw;
   float: right;
+  overflow: scroll;
   display: inline-block;
   &__space{
     padding: 46px 40px 0px;
@@ -52,4 +53,8 @@
       }
     }
   }
+}
+
+.chats {
+  overflow-y: scroll;
 }
