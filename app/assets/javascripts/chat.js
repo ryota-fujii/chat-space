@@ -4,7 +4,7 @@ $(function() {
       var html = `
       <li class="chat_body" data-message-id=${message.id}>
         <span class="user_name">
-          ${message.name}
+          ${message.user_name}
         </span>
         <span class="update_at">
           ${message.date}
