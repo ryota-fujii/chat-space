@@ -1,9 +1,7 @@
 $(function() {
   function buildHTML(message){
-    console.log('たどり着いた？')
     if (message.image){
       var html = `<img src="${message.image}">`
-      console.log("めっせ");
       return html;
     } else {
       var html =
@@ -20,7 +18,6 @@ $(function() {
             </div>
           </div>
         </li>`;
-      console.log('めっせーじさくせい');
       return html;
 
       }
@@ -41,13 +38,11 @@ $(function() {
     })
 
     .done(function(data){
-      console.log("成功");
       var html = buildHTML(data);
       $('.chats').append(html);
-      console.log("ついか？");
       $('#message_content').val('');
       $('#message_image').val('');
-      // $('form')[0].reset();
+      // $('chats').animate({scrollTop:0});
       })
     .fail(function(data){
       alert('自動更新に失敗しました')
