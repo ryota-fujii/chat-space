@@ -1,7 +1,22 @@
 $(function() {
   function buildHTML(message){
     if (message.image){
-      var html = `<img src="${message.image}">`
+      var html = `
+      <li class="chat_body" data-message-id=${message.id}>
+        <span class="user_name">
+          ${message.name}
+        </span>
+        <span class="update_at">
+          ${message.date}
+        </span>
+        <div class="message">
+          <div class="message__content">
+            ${message.content}
+          </div>
+        </div>
+        <img src="${message.image}">
+      </li>
+      `
       return html;
     } else {
       var html =
