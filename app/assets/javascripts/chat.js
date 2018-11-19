@@ -2,7 +2,7 @@ $(function() {
   function buildHTML(message){
     if (message.image){
       var html = `
-      <li class="chat_body" data-message-id=${message.id}>
+      <li class="chat_body">
         <span class="user_name">
           ${message.user_name}
         </span>
@@ -20,7 +20,7 @@ $(function() {
       return html;
     } else {
       var html =
-        `<li class="chat_body" data-message-id=${message.id}>
+        `<li class="chat_body" >
           <span class="user_name">
             ${message.name}
           </span>
@@ -55,9 +55,10 @@ $(function() {
     .done(function(data){
       var html = buildHTML(data);
       $('.chats').append(html);
+      $('.chat').animate({scrollTop: $('.chat')[0].scrollHeight}, 'fast');
       $('#message_content').val('');
       $('#message_image').val('');
-      // $('chats').animate({scrollTop:0});
+      console.log("投稿完了");
       })
     .fail(function(data){
       alert('自動更新に失敗しました')
