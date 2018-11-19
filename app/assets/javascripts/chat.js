@@ -58,7 +58,6 @@ $(function() {
       $('.chat').animate({scrollTop: $('.chat')[0].scrollHeight}, 'fast');
       $('#message_content').val('');
       $('#message_image').val('');
-      console.log("投稿完了");
       })
     .fail(function(data){
       alert('自動更新に失敗しました')
