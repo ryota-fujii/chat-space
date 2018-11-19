@@ -40,8 +40,7 @@ $(function() {
       var html = buildHTML(data);
       $('.chats').append(html);
       $('.chat').animate({scrollTop: $('.chat')[0].scrollHeight}, 'fast');
-      $('#message_content').val('');
-      $('#message_image').val('');
+      $("form")[0].reset();
       })
     .fail(function(data){
       alert('自動更新に失敗しました')
