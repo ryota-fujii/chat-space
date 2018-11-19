@@ -1,8 +1,11 @@
 $(function() {
   function buildHTML(message){
+    var insertImage = '';
     if (message.image){
-      var html = `
-      <li class="chat_body">
+      insertImage = `<img src="${message.image}">`;
+    }
+      var html =
+      `<li class="chat_body">
         <span class="user_name">
           ${message.user_name}
         </span>
@@ -13,29 +16,10 @@ $(function() {
           <div class="message__content">
             ${message.content}
           </div>
+          ${insertImage}
         </div>
-        <img src="${message.image}">
-      </li>
-      `
-      return html;
-    } else {
-      var html =
-        `<li class="chat_body" >
-          <span class="user_name">
-            ${message.name}
-          </span>
-          <span class="update_at">
-            ${message.date}
-          </span>
-          <div class="message">
-            <div class="message__content">
-              ${message.content}
-            </div>
-          </div>
-        </li>`;
-      return html;
-
-      }
+      </li>`;
+      return html
     }
 
 
