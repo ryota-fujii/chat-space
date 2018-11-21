@@ -1,6 +1,7 @@
 %div.chat
   %div.chat__space
-    = render partial: "message", collection: @messages
+    %ul.chats
+      = render @messages
   %div.chat__footer
     %div.new_message
       = form_for [@group, @message] do |f|

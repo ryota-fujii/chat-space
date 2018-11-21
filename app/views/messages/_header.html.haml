@@ -8,9 +8,12 @@
           = fa_icon 'pencil-square-o', class: 'icon'
         = link_to edit_user_path(current_user) do
           = fa_icon 'cog', class: 'icon'
-    %div.nav_bar__group
-      =link_to "Edit", root_path, class: "edit_button"
-      %div.group__name
-        = @group.name if @group.present?
-      %div.group__members
-        members:
+    - unless controller_name == "groups"
+      %div.nav_bar__group
+        =link_to "Edit", edit_group_path(@group), class: "edit_button"
+        %div.group__name
+          = @group.name if @group.present?
+        %div.group__members
+          members:
+          - @group.users.each do |user|
+            = user.name
