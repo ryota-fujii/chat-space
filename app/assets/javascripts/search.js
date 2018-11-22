@@ -23,7 +23,7 @@ var search_list = $("#user-search-result");
     console.log(input);
     $.ajax({
       type: 'GET',
-      url: 'users/search',
+      url: 'groups/search',
       data: {keyword: input},
       dataType: 'json'
     })
