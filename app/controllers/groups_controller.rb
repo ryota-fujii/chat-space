@@ -29,6 +29,13 @@ class GroupsController < ApplicationController
     end
   end
 
+  def search
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   private
   def group_params
     params.require(:group).permit(:name, {user_ids: [] })
