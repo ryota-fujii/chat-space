@@ -10,6 +10,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def search
+    @user = User.where('title LIKE(?)', "%#{params[:keyword]}%")
+    respond_to do |format|
+      format.json
+    end
+  end
+
   private
 
   def user_params

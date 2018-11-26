@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:edit, :update]
+  before_action :set_group, only: [:edit, :update, :search]
 
   def index
   end
@@ -26,13 +26,6 @@ class GroupsController < ApplicationController
       redirect_to group_messages_path(@group), notice: "グループを編集しました"
     else
       render :edit
-    end
-  end
-
-  def search
-    respond_to do |format|
-      format.html
-      format.json
     end
   end
 
