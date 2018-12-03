@@ -69,4 +69,9 @@ function deleteUserFromGroup(user){
     var parent = $(this).parent();
     $(parent).empty();
   });
+
+  $("#chat-group-users").on("click", ".user-search-remove", function() {
+    console.log(this);
+    
+  });
 });
