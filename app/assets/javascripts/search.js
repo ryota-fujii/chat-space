@@ -2,7 +2,7 @@ $(function() {
 
 var search_list = $("#user-search-result");
 
-function appendUser(user){
+function buildUser(user){
   var html = `
   <div class="chat-group-user clearfix">
     <p class="chat-group-user__name">${user.name}</p>
@@ -11,7 +11,7 @@ function appendUser(user){
   search_list.append(html);
 }
 
-function appendNoUser(user) {
+function buildNoUser(user) {
   var html ='';
   search_list.append(html);
 }
@@ -44,12 +44,12 @@ function deleteUserFromGroup(user){
       $("#user-search-result").empty();
       if (users.length !== 0){
         users.forEach(function(user){
-          appendUser(user);
+          buildUser(user);
 
         });
       }
       else {
-        appendNoUser("一致するユーザーは存在しません");
+        buildNoUser("一致するユーザーは存在しません");
       }
     })
     .fail(function(){
@@ -66,6 +66,7 @@ function deleteUserFromGroup(user){
     var html = addUserToGroup(user_id, user_name);
     console.log(html);
     $('#chat-group-users').append(html);
-    $('')
+    var parent = $(this).parent();
+    $(parent).empty();
   });
 });
