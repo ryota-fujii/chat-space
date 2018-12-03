@@ -1,6 +1,7 @@
 $(function() {
 
 var search_list = $("#user-search-result");
+var user_list = $("#chat-group-users");
 
 function buildUser(user){
   var html = `
@@ -21,7 +22,7 @@ function addUserToGroup(id, name) {
   <div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
     <input name='group[user_ids][]' type='hidden' value='${id}'>
     <p class='chat-group-user__name'>${name}</p>
-    <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
+    <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn' data-user-id=${id} data-user-name=${name}>削除</a>
   </div>`
   return html;
 
@@ -32,7 +33,6 @@ function deleteUserFromGroup(user){
 }
   $(".chat-group-form__input").on("keyup", function() {
     var input = $.trim($(this).val());
-    // console.log(input);
     $.ajax({
       type: 'GET',
       url: '/users/search',
@@ -45,7 +45,6 @@ function deleteUserFromGroup(user){
       if (users.length !== 0){
         users.forEach(function(user){
           buildUser(user);
-
         });
       }
       else {
@@ -58,20 +57,17 @@ function deleteUserFromGroup(user){
   });
 
   $("#user-search-result").on("click", ".user-search-add", function() {
-    console.log(this);
     var user_id = $(this).data('user-id');
     var user_name = $(this).data('user-name');
-    console.log(user_id);
-    console.log(user_name);
     var html = addUserToGroup(user_id, user_name);
-    console.log(html);
-    $('#chat-group-users').append(html);
+    user_list.after(html);
     var parent = $(this).parent();
     $(parent).empty();
   });
 
-  $("#chat-group-users").on("click", ".user-search-remove", function() {
-    console.log(this);
-    
+  user_list.on("click", ".user-search-remove", function() {
+    var parent = $(this).parent();
+    $(parent).empty();
+
   });
 });
