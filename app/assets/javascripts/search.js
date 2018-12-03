@@ -22,7 +22,7 @@ function addUserToGroup(id, name) {
   <div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
     <input name='group[user_ids][]' type='hidden' value='${id}'>
     <p class='chat-group-user__name'>${name}</p>
-    <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn' data-user-id=${id} data-user-name=${name}>削除</a>
+    <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
   </div>`
   return html;
 
@@ -60,7 +60,7 @@ function deleteUserFromGroup(user){
     var user_id = $(this).data('user-id');
     var user_name = $(this).data('user-name');
     var html = addUserToGroup(user_id, user_name);
-    user_list.after(html);
+    user_list.append(html);
     var parent = $(this).parent();
     $(parent).empty();
   });
@@ -68,6 +68,5 @@ function deleteUserFromGroup(user){
   user_list.on("click", ".user-search-remove", function() {
     var parent = $(this).parent();
     $(parent).empty();
-
   });
 });
