@@ -65,7 +65,6 @@ function addUserToGroup(id, name) {
   });
 
   user_list.on("click", ".user-search-remove", function() {
-    var parent = $(this).parent();
-    $(parent).empty();
+    var parent = $(this).parent().empty();
   });
 });
