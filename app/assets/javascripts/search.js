@@ -13,7 +13,11 @@ function buildUser(user){
 }
 
 function buildNoUser(user) {
-  var html ='';
+  var html = `
+  <div class="chat-group-user clearfix">
+  <p class="chat-group-user__name">${user}</p>
+  </div>
+  `;
   search_list.append(html);
 }
 
@@ -28,9 +32,6 @@ function addUserToGroup(id, name) {
 
 }
 
-function deleteUserFromGroup(user){
-  var html
-}
   $(".chat-group-form__input").on("keyup", function() {
     var input = $.trim($(this).val());
     $.ajax({
