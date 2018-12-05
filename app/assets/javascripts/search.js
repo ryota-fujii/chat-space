@@ -33,6 +33,7 @@ function addUserToGroup(id, name) {
 
   $(".chat-group-form__input").on("keyup", function() {
     var input = $.trim($(this).val());
+    console.log(input);
     $.ajax({
       type: 'GET',
       url: '/users/search',
