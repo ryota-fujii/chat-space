@@ -24,7 +24,7 @@ class GroupsController < ApplicationController
   def update
     if @group.update(group_params)
       @user = @group.users.find(current_user.id) if @user
-      @group.users << current_user unless @user.present?
+      @group.users << current_user unless @user.present? #// current_userが@group.usersにない場合だけcurrent_userを追加
       redirect_to group_messages_path(@group), notice: "グループを編集しました"
     else
       render :edit
