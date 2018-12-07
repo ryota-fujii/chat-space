@@ -12,15 +12,6 @@ function buildUser(user){
   search_list.append(html);
 }
 
-function buildNoUser(user) {
-  var html = `
-  <div class="chat-group-user clearfix">
-  <p class="chat-group-user__name">${user}</p>
-  </div>
-  `;
-  search_list.append(html);
-}
-
 function addUserToGroup(id, name) {
   var html = `
   <div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
@@ -33,6 +24,7 @@ function addUserToGroup(id, name) {
 
   $(".chat-group-form__input").on("keyup", function() {
     var input = $.trim($(this).val());
+    var reg =  RegExp(input);
     console.log(input);
     $.ajax({
       type: 'GET',
@@ -43,13 +35,12 @@ function addUserToGroup(id, name) {
 
     .done(function(users) {
       $("#user-search-result").empty();
-      if (users.length !== 0){
-        users.forEach(function(user){
-          buildUser(user);
+      if ((users.length !== 0) && (input.length !== 0)) {
+        $.each(users, function(i, user) {
+          if (user.name.match(reg)){
+            buildUser(user);
+          }
         });
-      }
-      else {
-        buildNoUser("一致するユーザーは存在しません");
       }
     })
     .fail(function(){
