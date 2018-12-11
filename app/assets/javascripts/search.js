@@ -12,6 +12,14 @@ function buildUser(user){
   search_list.append(html);
 }
 
+function buildNoUser(user){
+  var html =`
+  <div class="chat-group-user clearfix">
+    <p class="chat-group-user__name">${user}</p>
+  </div>`
+  search_list.append(html);
+}
+
 function addUserToGroup(id, name) {
   var html = `
   <div class='chat-group-user clearfix js-chat-member' id='chat-group-user'>
@@ -23,7 +31,6 @@ function addUserToGroup(id, name) {
 }
 
   $("#user-search-field").on("keyup", function() {
-    var users_id = [];
     var input = $.trim($(this).val());
     var reg =  RegExp(input);
     console.log(input);
@@ -42,6 +49,10 @@ function addUserToGroup(id, name) {
             buildUser(user);
           }
         });
+      }
+      else{
+        $("#user-search-result").empty();
+        buildNoUser("該当するユーザーがありません");
       }
     })
     .fail(function(){
