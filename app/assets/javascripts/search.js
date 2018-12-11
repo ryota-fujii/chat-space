@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load',function() {
 
 var search_list = $("#user-search-result");
 var user_list = $("#chat-group-users");
@@ -14,22 +14,23 @@ function buildUser(user){
 
 function addUserToGroup(id, name) {
   var html = `
-  <div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
+  <div class='chat-group-user clearfix js-chat-member' id='chat-group-user'>
     <input name='group[user_ids][]' type='hidden' value='${id}'>
     <p class='chat-group-user__name'>${name}</p>
-    <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
+    <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn' data-user-id=${id} >削除</a>
   </div>`
   user_list.append(html);
 }
 
-  $(".chat-group-form__input").on("keyup", function() {
+  $("#user-search-field").on("keyup", function() {
+    var users_id = [];
     var input = $.trim($(this).val());
     var reg =  RegExp(input);
     console.log(input);
     $.ajax({
       type: 'GET',
       url: '/users/search',
-      data: {keyword: input},
+      data: {name: input},
       dataType: 'json'
     })
 
@@ -51,12 +52,11 @@ function addUserToGroup(id, name) {
   $("#user-search-result").on("click", ".user-search-add", function() {
     var user_id = $(this).data('user-id');
     var user_name = $(this).data('user-name');
-    var html = addUserToGroup(user_id, user_name);
-    var parent = $(this).parent();
-    $(parent).empty();
+    addUserToGroup(user_id, user_name);
+    $(this).parent().empty();
   });
 
   user_list.on("click", ".user-search-remove", function() {
-    var parent = $(this).parent().empty();
+    $(this).parent().empty();
   });
 });
