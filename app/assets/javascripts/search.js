@@ -33,7 +33,6 @@ function addUserToGroup(id, name) {
   $("#user-search-field").on("keyup", function() {
     var input = $.trim($(this).val());
     var reg =  RegExp(input);
-    console.log(input);
     $.ajax({
       type: 'GET',
       url: '/users/search',
