@@ -32,7 +32,6 @@ function addUserToGroup(id, name) {
 
   $("#user-search-field").on("keyup", function() {
     var input = $.trim($(this).val());
-    var reg =  RegExp(input);
     $.ajax({
       type: 'GET',
       url: '/users/search',
@@ -44,7 +43,7 @@ function addUserToGroup(id, name) {
       $("#user-search-result").empty();
       if ((users.length !== 0) && (input.length !== 0)) {
         $.each(users, function(i, user) {
-          if (user.name.match(reg)){
+          if (user.name.match(input)){
             buildUser(user);
           }
         });
