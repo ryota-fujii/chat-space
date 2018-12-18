@@ -47,17 +47,16 @@ $(function() {
     return false;
   })
 
-  var interval;
-
   $(function(){
-    interval = setInterval(update, 5000);
+    var interval = setInterval(update, 5000);
   });
 
   function update(){
     if (window.location.href.match(/\/groups\/\d+\/messages/)){
       if($('.chat_body')[0]){
         var message_id = $('.chat_body:last').data('message-id');
-      }else{
+      }
+      else{
         var message_id = 0;
       }
 
@@ -68,13 +67,10 @@ $(function() {
         dataType: 'json',
       })
       .done(function(data){
-        var insertHTML = '';
         $.each(data, function(i, message){
-          if (message.id> message_id){
             var html = buildHTML(message);
             $('.chats').append(html);
             $('.chat').animate({scrollTop: $('.chat')[0].scrollHeight}, 'fast');
-          }
         });
       })
       .fail(function(data){
