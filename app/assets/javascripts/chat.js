@@ -57,6 +57,8 @@ $(function() {
     if (window.location.href.match(/\/groups\/\d+\/messages/)){
       if($('.chat_body')[0]){
         var message_id = $('.chat_body:last').data('message-id');
+      }else{
+        var message_id = 0;
       }
 
       $.ajax({
@@ -68,9 +70,11 @@ $(function() {
       .done(function(data){
         var insertHTML = '';
         $.each(data, function(i, message){
-          var html = buildHTML(message);
-          $('.chats').append(html);
-          $('.chat').animate({scrollTop: $('.chat')[0].scrollHeight}, 'fast');
+          if (message.id> message_id){
+            var html = buildHTML(message);
+            $('.chats').append(html);
+            $('.chat').animate({scrollTop: $('.chat')[0].scrollHeight}, 'fast');
+          }
         });
       })
       .fail(function(data){
@@ -80,6 +84,4 @@ $(function() {
       clearInterval(interval);
     }
   }
-
-
 })
