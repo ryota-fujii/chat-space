@@ -57,27 +57,21 @@ $(function() {
     if (window.location.href.match(/\/groups\/\d+\/messages/)){
       if($('.chat_body')[0]){
         var message_id = $('.chat_body:last').data('message-id');
-      }else{
-        var message_id = 0;
       }
 
-      console.log(message_id);
       $.ajax({
-        url: location.href.json,
+        url: location.href,
         type: 'GET',
-        data: {
-          message: {id: message_id}
-        },
+        data: {  message: {id: message_id} },
         dataType: 'json',
       })
       .done(function(data){
-        console.log(data);
         var insertHTML = '';
         $.each(data, function(i, message){
-          insertHTML += buildHTML(message);
+          var html = buildHTML(message);
+          $('.chats').append(html);
+          $('.chat').animate({scrollTop: $('.chat')[0].scrollHeight}, 'fast');
         });
-        $('.chats').html(insertHTML);
-        $('.chat').animate({scrollTop: $('.chat')[0].scrollHeight}, 'fast');
       })
       .fail(function(data){
         alert('自動更新に失敗しました');
