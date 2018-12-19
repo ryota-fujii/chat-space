@@ -53,12 +53,12 @@ $(function() {
 
   function update(){
     if (window.location.href.match(/\/groups\/\d+\/messages/)){
-      var message_id = ($('.chat_body')[0]) ? ($('.chat_body:last').data('message-id')):0;
+      var new_message = ($('.chat_body')[0]) ? ($('.chat_body:last').data('message-id')):0;
 
       $.ajax({
         url: location.href,
         type: 'GET',
-        data: {  message: {id: message_id} },
+        data: {  message: {id: new_message} },
         dataType: 'json',
       })
       .done(function(data){
