@@ -53,12 +53,7 @@ $(function() {
 
   function update(){
     if (window.location.href.match(/\/groups\/\d+\/messages/)){
-      if($('.chat_body')[0]){
-        var message_id = $('.chat_body:last').data('message-id');
-      }
-      else{
-        var message_id = 0;
-      }
+      var message_id = ($('.chat_body')[0]) ? ($('.chat_body:last').data('message-id')):0;
 
       $.ajax({
         url: location.href,
@@ -76,7 +71,8 @@ $(function() {
       .fail(function(data){
         alert('自動更新に失敗しました');
       });
-    } else{
+    }
+    else{
       clearInterval(interval);
     }
   }

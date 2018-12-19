@@ -1,9 +1,7 @@
-if @new_message.present?
-  json.array! @new_message.each do |message|
+json.array! @new_message.each do |message|
+      json.id             message.id
       json.user_name      message.user.name
       json.content        message.content
-      json.date           message.created_at.strftime("%Y/%m/%d %H:%M")
+      json.date           message.created_at.to_s
       json.image          message.image.url
-      json.id             message.id
-  end
 end
