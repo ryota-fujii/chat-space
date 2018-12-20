@@ -2,7 +2,7 @@
   %span.user_name
     = message.user.name
   %span.update_at
-    = message.created_at.strftime("%Y/%m/%d %H:%M")
+    = message.created_at.to_s
   %div.message
     - if message.content.present?
       %div.message__content

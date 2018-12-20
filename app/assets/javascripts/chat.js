@@ -4,7 +4,7 @@ $(function() {
     var insertImage =
       (message.image) ? `<img src="${message.image}">` : '';
       var html =
-      `<li class="chat_body" >
+      `<li class="chat_body" data-message-id= "${message.id}">
         <span class="user_name">
           ${message.user_name}
         </span>
@@ -20,7 +20,6 @@ $(function() {
       </li>`;
       return html
     }
-
 
   $('#new_message').on('submit', function(e){
     e.preventDefault();
@@ -53,19 +52,22 @@ $(function() {
 
   function update(){
     if (window.location.href.match(/\/groups\/\d+\/messages/)){
-      if (($('.chat_body')[0])){ var updated_id = ($('.chat_body:last').data('message-id')) || 0;}
-
+      var lastMessageId = $('.chat_body').last().data('message-id') || 0;
+      console.log(lastMessageId);
       $.ajax({
         url: location.href,
         type: 'GET',
-        data: {  message: {id: updated_id} },
+        data: {  message: {id: lastMessageId} },
         dataType: 'json',
       })
       .done(function(data){
-        $.each(data, function(i, message){
+        data.forEach(function(message) {
+        console.log(message);
+          if(message.id>lastMessageId){
             var html = buildHTML(message);
             $('.chats').append(html);
             $('.chat').animate({scrollTop: $('.chat')[0].scrollHeight}, 'fast');
+          }
         });
       })
       .fail(function(data){
