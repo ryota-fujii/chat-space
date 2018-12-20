@@ -53,7 +53,6 @@ $(function() {
   function update(){
     if (window.location.href.match(/\/groups\/\d+\/messages/)){
       var lastMessageId = $('.chat_body').last().data('message-id') || 0;
-      console.log(lastMessageId);
       $.ajax({
         url: location.href,
         type: 'GET',
