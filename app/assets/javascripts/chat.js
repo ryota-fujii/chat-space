@@ -52,7 +52,7 @@ $(function() {
 
   function update(){
     if (window.location.href.match(/\/groups\/\d+\/messages/)){
-      var lastMessageId = $('.chat_body').last().data('message-id') || 0;
+      var lastMessageId = $('.chat_body:last').data('message-id') || 0;
       $.ajax({
         url: location.href,
         type: 'GET',
@@ -61,12 +61,9 @@ $(function() {
       })
       .done(function(data){
         data.forEach(function(message) {
-        console.log(message);
-          if(message.id>lastMessageId){
-            var html = buildHTML(message);
-            $('.chats').append(html);
-            $('.chat').animate({scrollTop: $('.chat')[0].scrollHeight}, 'fast');
-          }
+          var html = buildHTML(message);
+          $('.chats').append(html);
+          $('.chat').animate({scrollTop: $('.chat')[0].scrollHeight}, 'fast');
         });
       })
       .fail(function(data){
