@@ -43,6 +43,9 @@
         position: absolute;
         right: 240px;
         z-index: 100;
+        .hidden{
+          display: none;
+        }
       }
       .send_button{
         float: right;
