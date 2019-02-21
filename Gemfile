@@ -33,6 +33,8 @@ gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'ransack'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -40,8 +42,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
 
-  gem 'jquery-rails'
-  gem 'jquery-ui-rails'
+
   gem 'capistrano'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
