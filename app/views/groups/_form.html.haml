@@ -29,7 +29,7 @@
           #chat-group-users
             -@group.users.each do |user|
               #chat-group-user.chat-group-user.clearfix.js-chat-member
-                %input{name: "group[user_ids][]", type: "hidden", value: user.id }
+                %input{class: "selected_user", name: "group[user_ids][]", type: "hidden", value: user.id }
                 %p.chat-group-user__name
                   = user.name
                 - if user != current_user

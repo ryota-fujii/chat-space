@@ -2,6 +2,11 @@ $(function(){
 
 var search_list = $("#user-search-result");
 var user_list = $("#chat-group-users");
+let group_users = [];
+$(".user-search-remove").each(function(i, element){
+  var user_id = $(element).attr('user_id')
+  group_users.push(user_id)
+})
 
 function buildUser(user){
   var html = `
@@ -23,7 +28,7 @@ function buildNoUser(user){
 function addUserToGroup(id, name) {
   var html = `
   <div class='chat-group-user clearfix js-chat-member' id='chat-group-user'>
-    <input name='group[user_ids][]' type='hidden' value='${id}'>
+    <input class="selected_user" name='group[user_ids][]' type='hidden' value='${id}'>
     <p class='chat-group-user__name'>${name}</p>
     <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn' data-user-id=${id} >削除</a>
   </div>`
@@ -35,13 +40,14 @@ function addUserToGroup(id, name) {
     $.ajax({
       type: 'GET',
       url: '/users/search',
-      data: {name: input},
+      data: {name: input,
+             members: group_users},
       dataType: 'json'
     })
 
     .done(function(users) {
       $("#user-search-result").empty();
-      if ((users.length !== 0) && (input.length !== 0)) {
+      if ((users.length !== 0) && ( input.length !== 0)) {
         $.each(users, function(i, user) {
           if (user.name.match(input)){
             buildUser(user);
@@ -58,14 +64,19 @@ function addUserToGroup(id, name) {
     });
   });
 
-  $("#user-search-result").on("click", ".user-search-add", function() {
+  search_list.on("click", ".user-search-add", function() {
     var user_id = $(this).data('user-id');
     var user_name = $(this).data('user-name');
+    group_users.push(user_id);
     addUserToGroup(user_id, user_name);
     $(this).parent().empty();
   });
 
   user_list.on("click", ".user-search-remove", function() {
+    let delete_id = $(this).data('user-id');
+    group_users.some(function(element, index){
+      if (element==delete_id) group_users.splice(index,1);
+    });
     $(this).parent().empty();
   });
 });
