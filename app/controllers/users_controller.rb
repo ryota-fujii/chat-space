@@ -23,7 +23,9 @@ class UsersController < ApplicationController
   def exclude_user
     user_ids = []
     user_ids << current_user.id
-    params[:members].map {  |user| user_ids << user.to_i}
+    if params[:members]
+      params[:members].map {  |user| user_ids << user.to_i}
+    end
     return user_ids
   end
 
